@@ -9254,10 +9254,12 @@ s3_pci_read(UNUSED(int func), int addr, void *priv)
             return (s3->chip == S3_TRIO64V2) ? (s3->pci_regs[0x0d] & 0xf8) : 0x00;
 
         case 0x12:
-            return (s3->chip >= S3_TRIO64V) ? 0x00 : (svga->crtc[0x5a] & 0x80);
+            return ((s3->chip == S3_VISION868) || (s3->chip == S3_VISION968) || (s3->chip >= S3_TRIO64V)) ? 0x00 :
+                       (svga->crtc[0x5a] & 0x80);
 
         case 0x13:
-            return (s3->chip >= S3_TRIO64V) ? (svga->crtc[0x59] & 0xfc) : svga->crtc[0x59];
+            return ((s3->chip == S3_VISION868) || (s3->chip == S3_VISION968) || (s3->chip >= S3_TRIO64V)) ?
+                       (svga->crtc[0x59] & 0xfc) : svga->crtc[0x59];
 
         case 0x30:
             return s3->has_bios ? (s3->pci_regs[0x30] & 0x01) : 0x00; /*BIOS ROM address*/
@@ -9455,6 +9457,9 @@ s3_disable_handlers(s3_t *s3)
 
     reset_state->svga.timer       = s3->svga.timer;
     reset_state->svga.timer8514   = s3->svga.timer8514;
+
+    memset(s3->svga.vram, 0x00, s3->svga.vram_max + 8);
+    memset(s3->svga.changedvram, 0x00, (s3->svga.vram_max >> 12) + 1);
 }
 
 static void
