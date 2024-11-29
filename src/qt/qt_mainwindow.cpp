@@ -1725,7 +1725,8 @@ MainWindow::on_actionAbout_86Box_triggered()
     msgBox.setText(QString("<b>%3%1%2</b>").arg(EMU_VERSION_FULL, versioninfo, tr("86Box v")));
     msgBox.setInformativeText(tr("An emulator of old computers.\n\nReleased under the GNU General Public License version 2 or later. See LICENSE for more information.\n\nCustom cache-enabled builds provided by @1ahmadbassam.\n\nPlease confirm the existence of issues in original 86box before reporting them to its authors."));
     msgBox.setWindowTitle("About 86Box");
-    msgBox.addButton("OK", QMessageBox::ButtonRole::AcceptRole);
+    const auto closeButton = msgBox.addButton("OK", QMessageBox::ButtonRole::AcceptRole);
+    msgBox.setEscapeButton(closeButton);
     const auto webSiteButton = msgBox.addButton(EMU_SITE, QMessageBox::ButtonRole::HelpRole);
     webSiteButton->connect(webSiteButton, &QPushButton::released, []() {
         QDesktopServices::openUrl(QUrl("https://" EMU_SITE));
