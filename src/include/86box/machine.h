@@ -687,7 +687,7 @@ extern int machine_at_8500tuc_init(const machine_t *);
 extern int machine_at_p55t2s_init(const machine_t *);
 
 extern int machine_at_p5vxb_init(const machine_t *);
-extern int machine_at_gw2kte_init(const machine_t *);
+extern int machine_at_gw2kma_init(const machine_t *);
 
 extern int machine_at_ap5s_init(const machine_t *);
 extern int machine_at_pc140_6260_init(const machine_t *);
@@ -722,6 +722,7 @@ extern int machine_at_pb680_init(const machine_t *);
 extern int machine_at_pb810_init(const machine_t *);
 extern int machine_at_mb520n_init(const machine_t *);
 extern int machine_at_i430vx_init(const machine_t *);
+extern int machine_at_gw2kte_init(const machine_t *);
 
 extern int machine_at_ma23c_init(const machine_t *);
 extern int machine_at_nupro592_init(const machine_t *);
@@ -848,6 +849,9 @@ extern int machine_at_vpc2007_init(const machine_t *);
 /* m_at_t3100e.c */
 extern int machine_at_t3100e_init(const machine_t *);
 
+/* m_at_grid.c */
+extern int machine_at_grid1520_init(const machine_t *);
+
 /* m_elt.c */
 extern int machine_elt_init(const machine_t *);
 
@@ -935,6 +939,7 @@ extern int machine_xt_iskra3104_init(const machine_t *);
 extern int machine_xt_pravetz16_imko4_init(const machine_t *);
 extern int machine_xt_pravetz16s_cpu12p_init(const machine_t *);
 extern int machine_xt_micoms_xl7turbo_init(const machine_t *);
+extern int machine_xt_maz1016_init(const machine_t *);
 
 /* m_xt_compaq.c */
 extern int machine_xt_compaq_deskpro_init(const machine_t *);
